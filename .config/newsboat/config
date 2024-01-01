@@ -1,0 +1,20 @@
+browser "librewolf --new-tab %u"
+
+#color listnormal color208 color234
+#color listnormal_unread color244 color234 
+#color listfocus   color15 color0 blink
+#color info  red default bold
+#color listfocus_unread color166 color0 bold
+#color info color38 color235
+#color background color15 color0
+#color article color15 color0
+
+color background color7 default
+color info color7 color0 dim
+color listnormal color7 default dim
+color listfocus color3 default
+color listnormal_unread color7 default
+color listfocus_unread color1 default
+
+text-width 80
+

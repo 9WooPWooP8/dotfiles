@@ -1,0 +1,15 @@
+import = ["/home/nikita/.config/alacritty/themes/kanagawa_wave.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 11.0
+
+[font.normal]
+family = "Input Mono"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 4
