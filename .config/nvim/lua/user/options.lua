@@ -1,0 +1,25 @@
+vim.opt.backup = false
+vim.opt.cmdheight = 1
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.fileencoding = "utf-8"
+vim.opt.ignorecase = true
+vim.opt.showtabline = 2
+vim.opt.smartindent = true
+vim.opt.smartcase = true
+vim.opt.splitright = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.termguicolors = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.updatetime = 300
+vim.opt.ttimeoutlen = 5
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "cs",
+	command = "setlocal shiftwidth=4 tabstop=4"
+})
+
+vim.cmd "au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"
+vim.cmd "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'"
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
