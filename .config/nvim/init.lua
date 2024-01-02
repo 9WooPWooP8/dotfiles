@@ -1,5 +1,7 @@
 require("user.plugins")
+
 require("user.themes.kanagawa")
+
 require("user.options")
 require("user.keymaps")
 require("user.cmp")
@@ -18,10 +20,6 @@ require("user.lualine")
 require("user.dap.dap")
 require("user.dap.dapui")
 require("user.neotree")
--- require("user.colorschemes.tokyo_night")
--- require("user.nvim_tree")
--- require("user.heirline")
 
+vim.cmd("set cursorline")
 vim.cmd("colorscheme kanagawa")
-
--- vim.cmd([[highlight IndentBlanklineContextChar guifg=#757575]])
