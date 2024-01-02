@@ -29,7 +29,6 @@ keymap("v", "p", '"_dP', opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
-
 -- center view for different commands
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
@@ -45,22 +44,9 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- Navigate tabs
+keymap("n", "<S-l>", ":tabnext<CR>", opts)
+keymap("n", "<S-h>", ":tabprevious<CR>", opts)
 
 --Close buffer
-keymap("n", "<C-w>", ":bd | bp <CR>", opts)
-
---Format document
-keymap("n", "<leader>F", ":lua vim.lsp.buf.format() <CR>", opts)
-
-keymap("n", "<leader>ff",
-	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-	opts)
-keymap("n", "<leader>fw",
-	"<cmd>lua require'telescope.builtin'.live_grep()<cr>",
-	opts)
-
-
-keymap("n", "<leader>e", ":Neotree toggle <CR>", opts)
+-- keymap("n", "<C-w>", ":bd | bp <CR>", opts)

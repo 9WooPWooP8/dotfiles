@@ -10,10 +10,11 @@ size = 11.0
 family = "Input Mono"
 style = "Regular"
 
+
 [font.offset]
 x = 0
 y = 4
 
 [window.padding]
-x = 10
+x = 30
 y = 10

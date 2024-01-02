@@ -25,14 +25,6 @@ dap.configurations.cs = {
   },
 }
 
-vim.keymap.set('n', '<leader>dr', dap.continue)
-vim.keymap.set('n', '<leader>dj', dap.step_into)
-vim.keymap.set('n', '<leader>dl', dap.step_over)
-vim.keymap.set('n', '<leader>dk', dap.step_out)
-vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint)
-vim.keymap.set('n', '<leader>ds', dap.terminate)
-
-
 --Autostart ui when debugging
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()

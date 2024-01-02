@@ -70,8 +70,13 @@ lazy.setup({
 
 	{
 		"akinsho/bufferline.nvim",
-		tag = "v2.*",
-		dependencies = {"kyazdani42/nvim-web-devicons"},
+		version = "*",
+		dependencies = { "kyazdani42/nvim-web-devicons" },
+	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
 	{
@@ -100,6 +105,14 @@ lazy.setup({
 		lazy = false,
 		priority = 1000,
 	},
+	{
+		"folke/which-key.nvim",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 500
+		end,
+		lazy = false,
+	},
 
 	--scrollbar
 	"petertriho/nvim-scrollbar",
@@ -118,14 +131,21 @@ lazy.setup({
 
 	"folke/neodev.nvim",
 	"MunifTanjim/nui.nvim",
-	"b0o/schemastore.nvim"
+	"b0o/schemastore.nvim",
+	-- {
+	--   'Bekaboo/dropbar.nvim',
+	--   -- optional, but required for fuzzy finder support
+	--   dependencies = {
+	--     'nvim-telescope/telescope-fzf-native.nvim'
+	--   }
+	-- },
+	{
+		"LunarVim/breadcrumbs.nvim",
+		dependencies = {
+			{ "SmiteshP/nvim-navic" },
+		},
+	},
+	{
+		"karb94/neoscroll.nvim",
+	},
 })
-
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]])
-
--- Use a protected call so we don't error out on first use
