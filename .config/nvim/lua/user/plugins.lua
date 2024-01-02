@@ -53,7 +53,7 @@ lazy.setup({
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
-		requires = {
+		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
@@ -62,7 +62,7 @@ lazy.setup({
 
 	{
 		"kyazdani42/nvim-tree.lua",
-		requires = {
+		dependencies = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icons
 		},
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
@@ -71,7 +71,7 @@ lazy.setup({
 	{
 		"akinsho/bufferline.nvim",
 		tag = "v2.*",
-		requires = "kyazdani42/nvim-web-devicons",
+		dependencies = {"kyazdani42/nvim-web-devicons"},
 	},
 
 	{
@@ -118,6 +118,7 @@ lazy.setup({
 
 	"folke/neodev.nvim",
 	"MunifTanjim/nui.nvim",
+	"b0o/schemastore.nvim"
 })
 
 -- vim.cmd([[

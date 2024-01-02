@@ -4,17 +4,16 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = {"python", "rust", "javascript"}, -- one of "all" or a list of languages
+	ensure_installed = { "python", "rust", "javascript" }, -- one of "all" or a list of languages
 	ignore_install = { "phpdoc", "comment", "rst" }, -- List of parsers to ignore installing
 	highlight = {
-		additional_vim_regex_highlighting = false,
-		enable = true, -- false will disable the whole extension
-		disable = { "css" }, -- list of language that will be disabled
+		enable = true,
+		disable = { "css" },
 	},
 	autopairs = {
 		enable = true,
 	},
-	indent = { enable = true, disable = { "python", "css" } },
+	indent = { enable = true },
 	autotag = {
 		enable = true,
 	},
