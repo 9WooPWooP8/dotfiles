@@ -1,9 +1,9 @@
 sw_volume: 15
 audio_device_state:1:PipeWire Sound Server
 audio_device_state:1:my_fifo
-state: pause
-current: 31
-time: 245.329000
+state: play
+current: 30
+time: 124.814000
 random: 1
 repeat: 1
 single: 0
