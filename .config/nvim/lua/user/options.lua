@@ -16,6 +16,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.updatetime = 300
 vim.opt.ttimeoutlen = 5
+vim.opt.signcolumn = "yes:2"
 
 vim.g.netrw_banner = 0
 
