@@ -104,6 +104,6 @@ alias config="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
 export PATH=/home/nikita/.local/bin:$PATH
 export WLR_NO_HARDWARE_CURSORS=1
-export EDITOR=/usr/bin/nvim
+export EDITOR=nvim
 export SUDO_EDITOR=/usr/bin/nvim
 export UPDATE_ZSH_DAYS=7

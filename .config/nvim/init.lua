@@ -3,7 +3,6 @@ require("user.plugins")
 require("user.themes.kanagawa")
 
 require("user.bufferline")
-
 require("user.options")
 require("user.keymaps")
 
