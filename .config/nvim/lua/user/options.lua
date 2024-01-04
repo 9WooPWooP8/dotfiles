@@ -19,6 +19,8 @@ vim.opt.ttimeoutlen = 5
 
 vim.g.netrw_banner = 0
 
+vim.cmd("set showtabline=1")
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "cs",
 	command = "setlocal shiftwidth=4 tabstop=4"

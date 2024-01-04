@@ -21,7 +21,7 @@ end
 
 lazy.setup({
 
-	"nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
+	"nvim-lua/popup.nvim",  -- An implementation of the Popup API from vim in Neovim
 	"nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 	"navarasu/onedark.nvim",
 	"morhetz/gruvbox",
@@ -30,42 +30,41 @@ lazy.setup({
 
 	"windwp/nvim-autopairs",
 
-	"hrsh7th/nvim-cmp", -- The completion plugin
-	"hrsh7th/cmp-buffer", -- buffer completions
-	"hrsh7th/cmp-path", -- path completions
-	"hrsh7th/cmp-cmdline", -- cmdline completions
+	"hrsh7th/nvim-cmp",        -- The completion plugin
+	"hrsh7th/cmp-buffer",      -- buffer completions
+	"hrsh7th/cmp-path",        -- path completions
+	"hrsh7th/cmp-cmdline",     -- cmdline completions
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
 
 	-- snippets
-	"L3MON4D3/LuaSnip", --snippet engine
+	"L3MON4D3/LuaSnip",            --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
 	{ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" },
 
 	-- LSP
 	"williamboman/mason.nvim", -- simple to use language server installer
 	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig", -- enable LSP
+	"neovim/nvim-lspconfig",  -- enable LSP
 	-- "williamboman/nvim-lsp-installer") -- simple to use language server installer
 	"nvim-treesitter/nvim-treesitter-refactor",
 
 	-- file explorer
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
-		},
+		}
 	},
-
 	{
 		"kyazdani42/nvim-tree.lua",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icons
 		},
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
+		tag = "nightly",               -- optional, updated every week. (see issue #1193)
 	},
 
 	{
