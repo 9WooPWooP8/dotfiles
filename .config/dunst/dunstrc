@@ -9,6 +9,7 @@ enable_recursive_icon_lookup = true
 origin = top-right
 offset = 22x22
 frame_width = 2
+follow = mouse
 frame_color = "#b4befe"
 separator_color= frame
 font = "Input Mono"
