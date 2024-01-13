@@ -7,13 +7,16 @@ TERM = "xterm-256color"
 size = 12.0
 
 [font.normal]
-family = "Input Nerd Font"
+family = "Monaspace Neon"
 style = "Regular"
-
 
 [font.offset]
 x = 0
 y = 4
+
+[font.glyph_offset]
+x = 0
+y = 3
 
 [window.padding]
 x = 30
