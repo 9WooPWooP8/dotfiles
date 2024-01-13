@@ -10,6 +10,18 @@ size = 12.0
 family = "Monaspace Neon"
 style = "Regular"
 
+[font.bold]
+family = "Monaspace Neon"
+style = "Bold"
+
+[font.bold_italic]
+family = "Monaspace Neon"
+style = "Bold Italic"
+
+[font.italic]
+family = "Monaspace Neon"
+style = "Italic"
+
 [font.offset]
 x = 0
 y = 4
