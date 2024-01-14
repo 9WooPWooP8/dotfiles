@@ -180,4 +180,8 @@ which_key.register({
 		"<cmd>lua vim.lsp.buf.signature_help()<CR>",
 		"Signature help",
 	},
+	["K"] = {
+		"<cmd>lua vim.lsp.buf.hover()<CR>",
+		"Signature help",
+	},
 }, {})
