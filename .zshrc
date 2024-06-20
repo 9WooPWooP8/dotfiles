@@ -15,7 +15,7 @@ zplug load
 
 ZSH_THEME="simple"
 
-plugins=(git jsontools vi-mode sudo)
+plugins=(git jsontools sudo)
 
 zstyle ':omz:update' mode disabled
 source $ZSH/oh-my-zsh.sh

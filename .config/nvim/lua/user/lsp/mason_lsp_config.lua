@@ -1,5 +1,7 @@
 local mason_lspconfig = require("mason-lspconfig")
 
+local navic = require("nvim-navic")
+
 mason_lspconfig.setup_handlers({
 	-- The first entry (without a key) will be the default handler
 	-- and will be called for each installed server that doesn't have
@@ -9,12 +11,16 @@ mason_lspconfig.setup_handlers({
 			on_attach = function(client, bufnr)
 				if client.name == "omnisharp" then
 					client.server_capabilities.semanticTokensProvider = nil
+					navic.attach(client, bufnr)
 				end
 			end,
 		})
 	end,
 	["pylsp"] = function()
 		require("lspconfig")["pylsp"].setup({
+			on_attach = function(client, bufnr)
+				navic.attach(client, bufnr)
+			end,
 			settings = {
 				pylsp = {
 					plugins = {
@@ -29,6 +35,9 @@ mason_lspconfig.setup_handlers({
 	end,
 	["rust_analyzer"] = function()
 		require("lspconfig")["rust_analyzer"].setup({
+			on_attach = function(client, bufnr)
+				navic.attach(client, bufnr)
+			end,
 			settings = {
 				["rust-analyzer"] = {
 					cargo = {
@@ -39,7 +48,11 @@ mason_lspconfig.setup_handlers({
 		})
 	end,
 	function(server_name) -- default handler (optional)
-		require("lspconfig")[server_name].setup({})
+		require("lspconfig")[server_name].setup({
+			on_attach = function(client, bufnr)
+				navic.attach(client, bufnr)
+			end,
+		})
 	end,
 	-- ["omnisharp"] = function()
 	-- 	require("omnisharp").setup({})

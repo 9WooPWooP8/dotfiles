@@ -24,10 +24,6 @@ lazy.setup({
 	"nvim-lua/popup.nvim",  -- An implementation of the Popup API from vim in Neovim
 	"nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
 	"navarasu/onedark.nvim",
-	"morhetz/gruvbox",
-	"Mofiqul/dracula.nvim",
-	"folke/tokyonight.nvim",
-
 	"windwp/nvim-autopairs",
 
 	"hrsh7th/nvim-cmp",        -- The completion plugin
@@ -46,10 +42,18 @@ lazy.setup({
 	"williamboman/mason.nvim", -- simple to use language server installer
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",  -- enable LSP
-	-- "williamboman/nvim-lsp-installer") -- simple to use language server installer
 	"nvim-treesitter/nvim-treesitter-refactor",
 
 	-- file explorer
+	{
+		'stevearc/oil.nvim',
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		init = function()
+
+		end
+	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -58,15 +62,8 @@ lazy.setup({
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		}
-	},
-	{
-		"kyazdani42/nvim-tree.lua",
-		dependencies = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
-		},
-		tag = "nightly",               -- optional, updated every week. (see issue #1193)
-	},
-
+	}
+	,
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
@@ -124,7 +121,13 @@ lazy.setup({
 
 	--debugging
 	"mfussenegger/nvim-dap",
-	"rcarriga/nvim-dap-ui",
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio"
+		}
+	},
 
 	"nvim-lualine/lualine.nvim",
 
@@ -144,6 +147,9 @@ lazy.setup({
 			{ "SmiteshP/nvim-navic" },
 		},
 	},
+	-- {
+	-- 	"SmiteshP/nvim-navic",
+	-- },
 	{
 		"karb94/neoscroll.nvim",
 	},

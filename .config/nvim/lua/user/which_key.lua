@@ -73,6 +73,10 @@ which_key.setup({
 
 which_key.register({
 	name = "Hotkeys",
+	o = {
+		":Oil --float <CR>",
+		"Oil nvim toggle",
+	},
 	e = {
 		":Neotree toggle <CR>",
 		"File tree toggle",
