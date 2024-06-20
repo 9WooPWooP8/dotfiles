@@ -132,6 +132,9 @@ function getData {
     #     echo `date +%s` >> "$HOME/.weather-last"
     fi
 }
+function getDataWttrIn {
+    RESPONSE_WTTR_IN=`curl -s wttr.in`
+}
 function setIcons {
     if [ $WID -le 232 ]; then
         #Thunderstorm
@@ -260,8 +263,14 @@ function setIcons {
 
 function outputCompact {
     OUTPUT="$WIND $ICON $ERR_MSG$COLOR_TEXT_BEGIN$DESCRIPTION$COLOR_TEXT_END| $TEMP"
+		# getDataWttrIn
+		#
     # echo "Output: $OUTPUT" >> "$HOME/.weather.log"
-    echo "$OUTPUT"
+    # printf "$OUTPUT\n$RESPONSE_WTTR_IN"
+    # echo $OUTPUT
+		echo "$OUTPUT"
+		# $RESPONSE_WTTR_IN"
+    # printf '{"text": "%s", "tooltip": "%s"}', "$OUTPUT", "$OUTPUT"
 }
 
 getData $1
