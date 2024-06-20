@@ -1,0 +1,11 @@
+[user]
+	email = nikita_bykov@proton.me
+	name = Nikita Bykov
+[init]
+	defaultBranch = master
+[diff]
+	tool = nvimdiff
+[merge]
+	tool = nvimdiff
+[mergetool]
+	keepBackup = false
