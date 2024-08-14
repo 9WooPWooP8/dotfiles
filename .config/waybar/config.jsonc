@@ -39,7 +39,7 @@
 		"tooltip": false,
 		"on-click": "activate",
 		"sort-by-number": true,
-		"all-outputs": true,
+		"all-outputs": false,
 		"disable-scroll": true,
 		"show-special": true,
 		"format-icons": {
