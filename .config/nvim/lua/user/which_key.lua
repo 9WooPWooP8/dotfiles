@@ -14,6 +14,7 @@ which_key.setup({
 		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 		-- No actual key bindings are created
 		presets = {
+			operators = false, -- adds help for operators like d, y, ...
 			motions = false,   -- adds help for motions
 			text_objects = false, -- help for text objects triggered after entering an operator
 			windows = false,   -- default bindings on <c-w>
@@ -24,14 +25,24 @@ which_key.setup({
 	},
 	-- add operators that will trigger motion and text object completion
 	-- to enable all native operators, set the preset / operators plugin above
-	win = {
+	operators = { gc = "Comments" },
+	key_labels = {
+		-- override the label used to display some keys. It doesn't effect WK in any other way.
+		-- For example:
+		-- ["<space>"] = "SPC",
+		-- ["<cr>"] = "RET",
+		-- ["<tab>"] = "TAB",
+	},
+	popup_mappings = {
+		scroll_down = "<c-d>", -- binding to scroll down inside the popup
+		scroll_up = "<c-u>", -- binding to scroll up inside the popup
+	},
+	window = {
 		border = "single",      -- none, single, double, shadow
 		position = "bottom",    -- bottom, top
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-		wo = {
-			winblend = 0,
-		}
+		winblend = 0,
 	},
 	layout = {
 		height = { min = 4, max = 25 },                                            -- min and max height of the columns
@@ -39,13 +50,19 @@ which_key.setup({
 		spacing = 3,                                                               -- spacing between columns
 		align = "left",                                                            -- align columns left, center or right
 	},
-	-- hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+	ignore_missing = true,                                                       -- enable this to hide mappings for which you didn't specify a label
+	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 	show_help = true,                                                            -- show help message on the command line when the popup is visible
 	show_keys = true,                                                            -- show the currently pressed key and its label as a message in the command line
-	triggers = {
-    { "<auto>", mode = "nxsot" },
-  },
+	triggers = "auto",                                                           -- automatically setup triggers
 	-- triggers = {"<leader>"} -- or specify a list manually
+	triggers_blacklist = {
+		-- list of mode / prefixes that should never be hooked by WhichKey
+		-- this is mostly relevant for key maps that start with a native binding
+		-- most people should not need to change this
+		i = { "j", "k" },
+		v = { "j", "k" },
+	},
 	-- disable the WhichKey popup for certain buf types and file types.
 	-- Disabled by default for Telescope
 	disable = {
@@ -54,43 +71,121 @@ which_key.setup({
 	},
 })
 
-which_key.add({
-    { "<leader>", group = "Hotkeys" },
-    { "<leader>F", ":lua vim.lsp.buf.format() <CR>", desc = "Format file" },
-    { "<leader>c", group = "Code actions" },
-    { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Show code actions" },
-    { "<leader>d", group = "DAP" },
-    { "<leader>db", "<cmd>DapToggleBreakpoint<CR>", desc = "Toggle breakpoint" },
-    { "<leader>dj", "<cmd>DapStepInto<CR>", desc = "StepInto" },
-    { "<leader>dk", "<cmd>DapStepOut<CR>", desc = "StepOut" },
-    { "<leader>dl", "<cmd>DapStepOver<CR>", desc = "StepOver" },
-    { "<leader>dr", "<cmd>DapContinue<CR>", desc = "DapContinue" },
-    { "<leader>ds", "<cmd>DapTerminate<CR>", desc = "Terminate" },
-    { "<leader>e", ":Neotree toggle <CR>", desc = "File tree toggle" },
-    { "<leader>f", group = "Find" },
-    { "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>", desc = "Find buffer" },
-    { "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", desc = "Find file" },
-    { "<leader>fw", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", desc = "Grep file" },
-    { "<leader>l", "<cmd>lua vim.diagnostic.setloclist()<CR>", desc = "Show diagnostic list" },
-    { "<leader>o", ":Oil --float <CR>", desc = "Oil nvim toggle" },
-    { "<leader>t", group = "Tabs" },
-    { "<leader>tn", "<cmd>tabnew<CR>", desc = "New tab" },
-    { "<leader>tq", "<cmd>tabclose<CR>", desc = "Close tab" },
-  }
-)
+which_key.register({
+	name = "Hotkeys",
+	o = {
+		":Oil --float <CR>",
+		"Oil nvim toggle",
+	},
+	e = {
+		":Neotree toggle <CR>",
+		"File tree toggle",
+	},
+	F = {
+		":lua vim.lsp.buf.format() <CR>",
+		"Format file",
+	},
+	f = {
+		name = "Find",
+		f = {
+			"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+			"Find file",
+		},
+		w = {
+			"<cmd>lua require'telescope.builtin'.live_grep()<cr>",
+			"Grep file",
+		},
+		b = {
+			"<cmd>lua require'telescope.builtin'.buffers()<cr>",
+			"Find buffer",
+		},
+	},
+	c = {
+		name = "Code actions",
+		a = {
+			"<cmd>lua vim.lsp.buf.code_action()<CR>",
+			"Show code actions",
+		},
+	},
+	l = {
+		"<cmd>lua vim.diagnostic.setloclist()<CR>",
+		"Show diagnostic list",
+	},
+	d = {
+		name = "DAP",
+		r = {
+			"<cmd>DapContinue<CR>",
+			"DapContinue",
+		},
+		j = {
+			"<cmd>DapStepInto<CR>",
+			"StepInto",
+		},
+		l = {
+			"<cmd>DapStepOver<CR>",
+			"StepOver",
+		},
+		k = {
+			"<cmd>DapStepOut<CR>",
+			"StepOut",
+		},
+		b = {
+			"<cmd>DapToggleBreakpoint<CR>",
+			"Toggle breakpoint",
+		},
+		s = {
+			"<cmd>DapTerminate<CR>",
+			"Terminate",
+		},
+	},
+	t = {
+		name = "Tabs",
+		n = {
+			"<cmd>tabnew<CR>",
+			"New tab",
+		},
+		q = {
+			"<cmd>tabclose<CR>",
+			"Close tab",
+		},
+	},
+}, { prefix = "<leader>" })
 
-which_key.add({
-    { "g", group = "LSP Actions" },
-    { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Go to declaration" },
-    { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition" },
-    { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Show implementations" },
-    { "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>", desc = "Show diagnostic at line" },
-    { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", desc = "Show references" },
-    { "grr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
-  }
-)
+which_key.register({
+	name = "LSP Actions",
+	D = {
+		"<cmd>lua vim.lsp.buf.declaration()<CR>",
+		"Go to declaration",
+	},
+	d = {
+		"<cmd>lua vim.lsp.buf.definition()<CR>",
+		"Go to definition",
+	},
+	i = {
+		"<cmd>lua vim.lsp.buf.implementation()<CR>",
+		"Show implementations",
+	},
+	rr = {
+		"<cmd>lua vim.lsp.buf.rename()<CR>",
+		"Rename",
+	},
+	r = {
+		"<cmd>lua vim.lsp.buf.references()<CR>",
+		"Show references",
+	},
+	l = {
+		"<cmd>lua vim.diagnostic.open_float({ border = 'rounded' })<CR>",
+		"Show diagnostic at line",
+	},
+}, { prefix = "g" })
 
-which_key.add({
-    { "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "Signature help" },
-    { "K", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Signature help" },
-  })
+which_key.register({
+	["<C-k>"] = {
+		"<cmd>lua vim.lsp.buf.signature_help()<CR>",
+		"Signature help",
+	},
+	["K"] = {
+		"<cmd>lua vim.lsp.buf.hover()<CR>",
+		"Signature help",
+	},
+}, {})

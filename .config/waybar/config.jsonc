@@ -19,7 +19,7 @@
 		"pulseaudio",
 		"cpu",
 		"memory",
-		"custom/weather",
+		// "custom/weather",
 		"clock"
 	],
 	// Modules configuration
