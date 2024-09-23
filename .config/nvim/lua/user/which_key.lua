@@ -92,8 +92,8 @@ which_key.add({
 
 which_key.add({
 	{ "<leader>t",  group = "Tabs" },
-	{ "<leader>tn", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "New tab" },
-	{ "<leader>tq", "<cmd>lua vim.lsp.buf.definition()<CR>",  desc = "Close tab" },
+	{ "<leader>tn", "<cmd>tabnew<CR>", desc = "New tab" },
+	{ "<leader>tq", "<cmd>tabclose<CR>",  desc = "Close tab" },
 })
 
 which_key.add({
