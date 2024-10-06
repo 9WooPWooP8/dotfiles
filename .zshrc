@@ -21,6 +21,7 @@ zstyle ':omz:update' mode disabled
 source $ZSH/oh-my-zsh.sh
 
 alias v="nvim"
+alias acpoet="source $( poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate"
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
 export PATH=/home/nikita/.local/bin:$PATH

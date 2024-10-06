@@ -9,3 +9,5 @@
 	tool = nvimdiff
 [mergetool]
 	keepBackup = false
+[core]
+	autocrlf = input
