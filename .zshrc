@@ -7,6 +7,11 @@ fi
 
 ZSH_THEME="simple"
 
+HISTFILE=~/.zsh_history
+HISTSIZE=15000
+SAVEHIST=15000
+setopt appendhistory
+
 alias v="nvim"
 alias ls="ls --color"
 alias acpoet='source $( poetry env list --full-path | grep Activated | cut -d" " -f1 )/bin/activate'
