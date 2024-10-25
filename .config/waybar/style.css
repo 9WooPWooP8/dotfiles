@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-	background: rgba(0, 0, 0, 0.87);
+	background: #000000;
 	margin: 0;
 }
 
@@ -20,7 +20,7 @@ window#waybar {
 	padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-	border-bottom: 2px solid #05a4c4;
+	border-bottom: 2px solid #7e9cd8;
 	border-radius: 0;
 }
 
@@ -40,7 +40,7 @@ window#waybar {
 #memory,
 #custom-weather,
 #language {
-	border-bottom: 2px solid #05a4c4; 
+	border-bottom: 2px solid #7e9cd8; 
 	padding-top: 5px;
 	padding-bottom: 5px;
   padding-left: 10px;
