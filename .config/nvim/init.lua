@@ -1,6 +1,7 @@
 require("user.plugins")
 
 require("user.themes.kanagawa")
+vim.cmd("colorscheme kanagawa")
 
 require("user.bufferline")
 require("user.options")
@@ -27,4 +28,3 @@ require("user.which_key")
 require("user.harpoon")
 
 vim.cmd("set cursorline")
-vim.cmd("colorscheme kanagawa")
