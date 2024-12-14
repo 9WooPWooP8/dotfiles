@@ -16,8 +16,8 @@ exec dunst
 exec_always autotiling
 
 # fix audio mute on start
-exec sleep 5; amixer -c 0 set Front unmute
-exec sleep 5; amixer -c 1 set Front unmute
+exec sleep 7s && amixer -c 0 set Front unmute
+exec sleep 7s && amixer -c 1 set Front unmute
 
 
 ### Output configuration
@@ -27,7 +27,7 @@ output * bg /home/nikita/Pictures/wallpapers/nord-street.png fill
 #
 # Example configuration:
 #
-  output DP-2 position 1920 0 mode 2560x1440@144Hz adaptive_sync 1
+  output DP-2 position 1920 0 mode 2560x1440@144Hz
   output HDMI-A-1 position 0 360 mode 1920x1080@60Hz
 
 #
@@ -269,6 +269,6 @@ output * bg /home/nikita/Pictures/wallpapers/nord-street.png fill
     bindsym --to-code $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 
 exec xrandr --output DP-2 --primary
-exec_always sleep 10;xrandr --output DP-2 --primary
+exec_always sleep 10s && xrandr --output DP-2 --primary
 
 include /etc/sway/config.d/*
