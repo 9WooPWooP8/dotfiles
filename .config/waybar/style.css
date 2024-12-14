@@ -29,6 +29,11 @@ window#waybar {
 	border-radius: 0;
 }
 
+#workspaces button.focused {
+	border-bottom: 2px solid white;
+	border-radius: 0;
+}
+
 #clock,
 #backlight,
 #pulseaudio,
