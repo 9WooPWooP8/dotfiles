@@ -17,10 +17,11 @@ alias ls="ls --color"
 alias acpoet='source $( poetry env list --full-path | grep Activated | cut -d" " -f1 )/bin/activate'
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
-export PATH=/home/nikita/.local/bin:$PATH
+export PATH=/home/nikita/.local/bin:~/.cargo/bin:$PATH
 export WLR_NO_HARDWARE_CURSORS=1
 export EDITOR=nvim
 export SUDO_EDITOR=/usr/bin/nvim
+export XDG_CURRENT_DESKTOP=Sway
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
