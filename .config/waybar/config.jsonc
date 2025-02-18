@@ -51,6 +51,7 @@
 		"on-click": "activate",
 		"sort-by-number": true,
 		"all-outputs": false,
+		"warp-on-scroll": true,
 		"disable-scroll": true,
 		"show-special": true
 	},

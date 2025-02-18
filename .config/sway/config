@@ -53,6 +53,8 @@ output * bg /home/nikita/Pictures/wallpapers/nord-street.png fill
 			accel_profile "flat"
   }
   input type:keyboard {
+		repeat_rate 35
+		repeat_delay 500
     xkb_layout us,ru
     xkb_options grp:lalt_lshift_toggle,caps:escape
 }
@@ -111,10 +113,10 @@ output * bg /home/nikita/Pictures/wallpapers/nord-street.png fill
 #
 # Moving around:
 #
-		mouse_warping container
+		mouse_warping output
 		focus_wrapping workspace
 
-		seat * hide_cursor 3000
+		seat * hide_cursor 5000
 		# seat * hide_cursor when-typing enable
     # Move your focus around
     bindsym --to-code $mod+$left focus left
@@ -262,11 +264,14 @@ output * bg /home/nikita/Pictures/wallpapers/nord-street.png fill
     bindsym --to-code --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
     bindsym --to-code --locked XF86AudioPlay exec playerctl play-pause
     bindsym --to-code --locked XF86AudioPause exec playerctl play-pause
+    bindsym --to-code --locked XF86AudioNext exec playerctl next
+    bindsym --to-code --locked XF86AudioPrev exec playerctl previous
     # Special keys to adjust brightness via brightnessctl
     bindsym --to-code --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --to-code --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym --to-code $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+    # bindsym --to-code $mod+Shift+s exec XDG_CURRENT_DESKTOP=sway flameshot gui;
 
 exec xrandr --output DP-2 --primary
 exec_always sleep 10s && xrandr --output DP-2 --primary
