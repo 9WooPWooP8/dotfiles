@@ -12,6 +12,9 @@ HISTSIZE=15000
 SAVEHIST=15000
 setopt appendhistory
 
+bindkey '^R' history-incremental-search-backward
+bindkey '^I^I' autosuggest-accept
+
 alias v="nvim"
 alias ls="ls --color"
 alias acpoet='source $( poetry env list --full-path | grep Activated | cut -d" " -f1 )/bin/activate'
@@ -61,3 +64,4 @@ zinit load zsh-users/zsh-autosuggestions
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
