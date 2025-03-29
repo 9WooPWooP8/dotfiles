@@ -1,0 +1,4 @@
+default-host: https://ntfy.woopwoopserver.com
+subscribe:
+- topic: services_monitoring
+  command: 'notify-send -u critical "$topic" "$t\n$m"'

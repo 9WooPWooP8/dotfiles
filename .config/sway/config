@@ -168,6 +168,9 @@ bindsym --to-code --locked XF86AudioPrev exec playerctl previous
 # special key to take a screenshot with grim
 bindsym --to-code $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
 
+# subscribe to ntfy notifications
+exec ~/Scripts/ntfy/ntfy_subscribe.sh &
+
 # try to make DP-2 monitor primary for xwayland apps
 exec xrandr --output DP-2 --primary
 exec_always sleep 10s && xrandr --output DP-2 --primary
