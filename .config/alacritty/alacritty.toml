@@ -32,5 +32,9 @@ y = 2
 x = 30
 y = 10
 
+[window]
+decorations = "Buttonless"
+
+
 [general]
 import = ["~/.config/alacritty/themes/kanagawa_wave.toml"]
