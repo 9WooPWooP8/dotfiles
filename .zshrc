@@ -25,6 +25,7 @@ export WLR_NO_HARDWARE_CURSORS=1
 export EDITOR=nvim
 export SUDO_EDITOR=/usr/bin/nvim
 export XDG_CURRENT_DESKTOP=Sway
+export HOMEBREW_NO_AUTO_UPDATE=true
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
