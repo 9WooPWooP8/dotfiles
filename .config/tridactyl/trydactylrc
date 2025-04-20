@@ -1,0 +1,12 @@
+" General Settings
+set configversion 2.0
+set newtab about:blank
+set theme dark
+
+" Binds
+unbind <C-f>
+unbind <C-b>
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=tridactyl
+
