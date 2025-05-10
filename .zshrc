@@ -17,6 +17,7 @@ bindkey '^I^I' autosuggest-accept
 
 alias v="nvim"
 alias ls="ls --color"
+alias homeaudio="ncmpcpp -h 192.168.0.100"
 alias acpoet='source $( poetry env list --full-path | grep Activated | cut -d" " -f1 )/bin/activate'
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
