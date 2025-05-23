@@ -5,7 +5,8 @@ end
 
 nvim_navic.setup({
 	lsp = {
-		auto_attach = true
+		auto_attach = true,
+		preference = {"pyright", "pylsp"}
 	}
 })
 

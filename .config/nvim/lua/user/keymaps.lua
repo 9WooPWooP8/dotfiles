@@ -39,6 +39,7 @@ keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 
+-- Allow moving selected text
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
@@ -47,6 +48,9 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Navigate tabs
 keymap("n", "<S-l>", ":tabnext<CR>", opts)
 keymap("n", "<S-h>", ":tabprevious<CR>", opts)
+
+-- Copy to clipboard
+keymap("v", "<C-c>", "\"+y", opts)
 
 --Close buffer
 -- keymap("n", "<C-w>", ":bd | bp <CR>", opts)
