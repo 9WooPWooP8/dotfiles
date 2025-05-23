@@ -7,6 +7,6 @@ mason.setup()
 
 require("user.lsp.mason_lsp_config")
 require("user.lsp.diagnostics_config").setup()
--- require("user.none_ls")  -- TODO: For now only uses python isort, uncomment when new stuff will be used
+-- require("user.lsp.none_ls")
 
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format{async=true}' ]])

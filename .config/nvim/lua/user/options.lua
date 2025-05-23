@@ -36,3 +36,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.cmd "au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"
 vim.cmd "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'"
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
+
+vim.cmd "set cursorline"

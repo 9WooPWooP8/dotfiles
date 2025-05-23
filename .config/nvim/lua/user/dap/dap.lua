@@ -1,12 +1,10 @@
 local dap_status_ok, dap = pcall(require, "dap")
 if not dap_status_ok then
-	print("aaaaa")
 	return
 end
 
 local dapui_status_ok, dapui = pcall(require, "dapui")
 if not dapui_status_ok then
-	print("fasdfasdfasdfasdf")
 	return
 end
 
