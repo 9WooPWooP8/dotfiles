@@ -38,3 +38,5 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+vim.api.nvim_create_autocmd('CursorMoved', {callback=require('lualine').refresh})

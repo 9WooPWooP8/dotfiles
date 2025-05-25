@@ -152,6 +152,7 @@ bindsym --to-code $mod+o resize grow width 5ppt
 # special keys to adjust volume via pulseaudio
 bindsym --to-code $mod+Shift+bracketleft exec playerctl -p mpd volume 0.05-
 bindsym --to-code $mod+Shift+bracketright exec playerctl -p mpd volume 0.05+
+bindsym --to-code $mod+Shift+y exec playerctl -p mpd shuffle Toggle
 
 bindsym --to-code --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
 bindsym --to-code --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
