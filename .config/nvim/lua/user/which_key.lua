@@ -46,9 +46,7 @@ which_key.setup({
 	end,
 	show_help = true, -- show help message on the command line when the popup is visible
 	show_keys = true, -- show the currently pressed key and its label as a message in the command line
-	triggers = {
-		{ "<auto>", mode = "nxso" },
-	},
+	triggers = { },
 	-- disable the WhichKey popup for certain buf types and file types.
 	-- Disabled by default for Telescope
 	disable = {
@@ -59,6 +57,7 @@ which_key.setup({
 
 which_key.add({
 	{ "<leader>",  group = "Hotkeys" },
+	{ "<leader>?", ":WhichKey <CR>",                 desc = "Show keybindings" },
 	{ "<leader>o", ":Oil --float <CR>",              desc = "Oil nvim toggle" },
 	{ "<leader>e", ":Neotree toggle <CR>",           desc = "File tree toggle" },
 	{ "<leader>F", ":lua vim.lsp.buf.format() <CR>", desc = "Format file" },
