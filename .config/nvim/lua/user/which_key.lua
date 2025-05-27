@@ -69,6 +69,7 @@ which_key.add({
 	{ "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", desc = "Find file" },
 	{ "<leader>fw", "<cmd>lua require'telescope.builtin'.live_grep()<cr>",                                                                 desc = "Grep file" },
 	{ "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>",                                                                   desc = "Find buffer" },
+	{ "<leader>fh", "<cmd>lua require'telescope.builtin'.resume()<cr>",                                                                   desc = "Resume last search" },
 })
 
 which_key.add({
