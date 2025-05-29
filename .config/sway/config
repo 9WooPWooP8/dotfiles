@@ -47,11 +47,15 @@ bindsym --to-code $mod+Shift+q kill
 # start your launcher
 bindsym --to-code $mod+d exec $menu
 
+
 # app shortcuts
 bindsym --to-code $mod+b exec librewolf
-bindsym --to-code $mod+m exec $term -e ncmpcpp
+bindsym --to-code $mod+m exec $term --class in_scratchpad -e ncmpcpp
 bindsym --to-code $mod+e exec $term -e neomutt
 bindsym --to-code $mod+n exec $term -e newsboat
+
+# open windows with id "in_scratchpad" in scratchpad
+for_window [app_id="in_scratchpad"] move container to scratchpad, focus
 
 # powermenu
 bindsym --to-code $mod+SHIFT+BackSpace exec ~/.config/tofi/powermenu.sh
