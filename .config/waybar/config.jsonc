@@ -15,6 +15,7 @@
 	"modules-right": [
 		// "hyprland/language",
 		"sway/language",
+		"custom/vpn",
 		"pulseaudio",
 		"cpu",
 		"memory",
@@ -32,6 +33,11 @@
 		"exec": "$HOME/.config/waybar/weather-plugin.sh",
 		"interval": 600,
 		"signal": "8"
+	},
+	"custom/vpn": {
+		"exec": "$HOME/Scripts/vpn_controls/check_vpn_status.sh",
+		"format": "VPN {text}",
+		"interval": 10
 	},
 	"sway/workspaces": {
 		"tooltip": false,
