@@ -15,13 +15,16 @@ require('lualine').setup {
       statusline = 1000,
       tabline = 1000,
       winbar = 1000,
-    }
+    },
+		-- use_mode_colors = false
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_a = {'branch'},
+    -- lualine_b = {'diff', 'diagnostics'},
+    lualine_b = {'diagnostics'},
+    lualine_c = {},
+    -- lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {'encoding', 'fileformat'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
@@ -40,3 +43,4 @@ require('lualine').setup {
 }
 
 vim.api.nvim_create_autocmd('CursorMoved', {callback=require('lualine').refresh})
+vim.api.nvim_create_autocmd('ModeChanged', {callback=require('lualine').refresh})
