@@ -20,9 +20,9 @@ alias ls="ls --color"
 alias homeaudio="ncmpcpp -h 192.168.0.100"
 alias lg="lazygit"
 alias acpoet='source $( poetry env list --full-path | grep Activated | cut -d" " -f1 )/bin/activate'
-alias rutracker="RUTRACKER_USERNAME=$(pass show rutracker | grep -oP 'username:\K.*')\
+alias rutracker='RUTRACKER_USERNAME=$(pass show rutracker | grep -oP "username:\K.*")\
 	RUTRACKER_PASSWORD=$(pass show rutracker | head -n 1)\
-	$HOME/Code/personal/rust_rutracker_cli/target/release/rust_rutracker_cli"
+	$HOME/Code/personal/rust_rutracker_cli/target/release/rust_rutracker_cli'
 
 export PATH=/home/nikita/.local/bin:~/.cargo/bin:$PATH
 export WLR_NO_HARDWARE_CURSORS=1
