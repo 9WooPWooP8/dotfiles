@@ -15,10 +15,10 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.updatetime = 300
--- vim.opt.timeoutlen = 5000
+vim.opt.timeoutlen = 2000
 -- vim.opt.ttimeoutlen = 5
-vim.cmd "set notimeout"
-vim.cmd "set ttimeout"
+-- vim.cmd "set notimeout"
+-- vim.cmd "set ttimeout"
 vim.opt.signcolumn = "yes:2"
 vim.opt.jumpoptions = "stack,view"
 
