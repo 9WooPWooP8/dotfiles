@@ -26,6 +26,8 @@ vim.opt.keymap = "russian-jcukenwin"
 vim.opt.iminsert = 0
 vim.opt.imsearch = 0
 
+vim.opt.laststatus = 0
+
 vim.g.netrw_banner = 0
 
 vim.opt.lazyredraw = true
