@@ -59,7 +59,7 @@ which_key.add({
 	{ "<leader>",  group = "Hotkeys" },
 	{ "<leader>?", ":WhichKey <CR>",                 desc = "Show keybindings" },
 	{ "<leader>o", ":Oil --float <CR>",              desc = "Oil nvim toggle" },
-	{ "<leader>e", ":Neotree toggle <CR>",           desc = "File tree toggle" },
+	{ "<leader>e", ":Neotree toggle position=current <CR>",           desc = "File tree toggle" },
 	{ "<leader>F", ":lua vim.lsp.buf.format() <CR>", desc = "Format file" },
 })
 
