@@ -71,6 +71,12 @@ require("neo-tree").setup({
       handler = function(arg)
         vim.opt.relativenumber = true
       end,
-    }
+    },
+		{
+			event = "file_open_requested",
+			handler = function()
+				require("neo-tree.command").execute({ action = "close" })
+			end
+		},
   },
 })
