@@ -76,6 +76,15 @@ lazy.setup({
 	},
 
 	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				backdrop = 1
+			}
+		}
+	},
+
+	{
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	},
