@@ -30,3 +30,12 @@ bind-key j down
 bind-key k up
 bind-key l open
 bind-key h quit
+
+
+urls-source "miniflux"
+miniflux-url "https://miniflux.woopwoopserver.com/"
+
+
+
+miniflux-login "woopwoop"
+miniflux-passwordeval "pass show miniflux"
