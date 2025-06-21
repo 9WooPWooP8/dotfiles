@@ -58,8 +58,10 @@ bindsym --to-code $mod+n exec $term -e newsboat
 for_window [app_id="in_scratchpad"] move container to scratchpad, focus
 
 # powermenu
-bindsym --to-code $mod+SHIFT+BackSpace exec ~/.config/tofi/powermenu.sh
+bindsym --to-code $mod+SHIFT+BackSpace exec ~/Scripts/tofi/powermenu.sh
 
+# vpn selector
+bindsym --to-code $mod+SHIFT+v exec ~/Scripts/tofi/select_vpn.sh
 
 # drag floating windows by holding down $mod and left mouse button.
 # resize them with right mouse button + $mod.

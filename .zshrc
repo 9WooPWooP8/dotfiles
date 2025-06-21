@@ -24,7 +24,6 @@ alias rutracker='RUTRACKER_USERNAME=$(pass show rutracker | grep -oP "username:\
 alias weather='curl wttr.in/tyumen'
 alias toggle_vpn='sudo toggle_vpn'
 
-export PATH=/home/nikita/.local/bin:~/.cargo/bin:$PATH
 export WLR_NO_HARDWARE_CURSORS=1
 export EDITOR=nvim
 export SUDO_EDITOR=/usr/bin/nvim
