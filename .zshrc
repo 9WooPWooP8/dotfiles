@@ -22,6 +22,7 @@ alias lg="lazygit"
 alias acpoet='source $( poetry env list --full-path | grep Activated | cut -d" " -f1 )/bin/activate'
 alias rutracker='RUTRACKER_USERNAME=$(pass show rutracker | grep -oP "username:\K.*") RUTRACKER_PASSWORD=$(pass show rutracker | head -n 1) rust_rutracker_cli'
 alias weather='curl wttr.in/tyumen'
+alias toggle_vpn='sudo toggle_vpn'
 
 export PATH=/home/nikita/.local/bin:~/.cargo/bin:$PATH
 export WLR_NO_HARDWARE_CURSORS=1
