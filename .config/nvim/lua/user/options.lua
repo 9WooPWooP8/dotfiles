@@ -36,6 +36,10 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "cs",
 	command = "setlocal shiftwidth=4 tabstop=4"
 })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "Jenkinsfile",
+	command = "setlocal shiftwidth=2 tabstop=2"
+})
 
 vim.cmd "au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"
 vim.cmd "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'"
