@@ -3,6 +3,26 @@ if not status_ok then
 	return
 end
 
+local toggle_gitsigns_blame = function()
+	local function is_filetype_open(filetype)
+		for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+			if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype == filetype then
+				return buf
+			end
+		end
+		return nil
+	end
+	
+	-- check if gitsigns-blame buffer is open
+	local bufnr = is_filetype_open("gitsigns-blame")
+
+	if bufnr then
+		vim.api.nvim_buf_delete(bufnr, { force = false })
+	else
+		vim.cmd("Gitsigns blame")
+	end
+end
+
 which_key.setup({
 	plugins = {
 		marks = false,   -- shows a list of your marks on ' and `
@@ -46,7 +66,7 @@ which_key.setup({
 	end,
 	show_help = true, -- show help message on the command line when the popup is visible
 	show_keys = true, -- show the currently pressed key and its label as a message in the command line
-	triggers = { },
+	triggers = {},
 	-- disable the WhichKey popup for certain buf types and file types.
 	-- Disabled by default for Telescope
 	disable = {
@@ -57,10 +77,10 @@ which_key.setup({
 
 which_key.add({
 	{ "<leader>",  group = "Hotkeys" },
-	{ "<leader>?", ":WhichKey <CR>",                 desc = "Show keybindings" },
-	{ "<leader>o", ":Oil --float <CR>",              desc = "Oil nvim toggle" },
-	{ "<leader>e", ":Neotree toggle position=current <CR>",           desc = "File tree toggle" },
-	{ "<leader>F", ":lua vim.lsp.buf.format() <CR>", desc = "Format file" },
+	{ "<leader>?", ":WhichKey <CR>",                        desc = "Show keybindings" },
+	{ "<leader>o", ":Oil --float <CR>",                     desc = "Oil nvim toggle" },
+	{ "<leader>e", ":Neotree toggle position=current <CR>", desc = "File tree toggle" },
+	{ "<leader>F", ":lua vim.lsp.buf.format() <CR>",        desc = "Format file" },
 })
 
 which_key.add({
@@ -68,7 +88,16 @@ which_key.add({
 	{ "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", desc = "Find file" },
 	{ "<leader>fw", "<cmd>lua require'telescope.builtin'.live_grep()<cr>",                                                                 desc = "Grep file" },
 	{ "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>",                                                                   desc = "Find buffer" },
-	{ "<leader>fh", "<cmd>lua require'telescope.builtin'.resume()<cr>",                                                                   desc = "Resume last search" },
+	{ "<leader>fh", "<cmd>lua require'telescope.builtin'.resume()<cr>",                                                                    desc = "Resume last search" },
+})
+
+which_key.add({
+	{ "<leader>g",  group = "Git" },
+	{ "<leader>gb", toggle_gitsigns_blame, desc = "Toggle git blame view" },
+})
+
+which_key.add({
+	{ "<leader>z",  "<cmd>:ZenMode<CR>", desc = "Zen mode toggle" },
 })
 
 which_key.add({
@@ -92,8 +121,8 @@ which_key.add({
 
 which_key.add({
 	{ "<leader>t",  group = "Tabs" },
-	{ "<leader>tn", "<cmd>tabnew<CR>", desc = "New tab" },
-	{ "<leader>tq", "<cmd>tabclose<CR>",  desc = "Close tab" },
+	{ "<leader>tn", "<cmd>tabnew<CR>",   desc = "New tab" },
+	{ "<leader>tq", "<cmd>tabclose<CR>", desc = "Close tab" },
 })
 
 which_key.add({
