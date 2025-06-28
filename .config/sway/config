@@ -11,15 +11,26 @@ set $right l
 
 # autostart
 exec copyq --start-server
-exec waybar
+# exec waybar
 exec dunst
 exec_always autotiling
+
+bar {
+	id 1
+	tray_output none
+	font Input Nerd Font 9 
+	status_command "~/Scripts/test.sh"
+	gaps 0 6 0 0
+	colors {
+		# focused_workspace #7E9CD8 #7E9CD8 #AAAAAA
+	}
+}
 
 
 # display & bg config 
 # you can get the names of your outputs by running: swaymsg -t get_outputs
-output DP-2 position 1920 0 mode 2560x1440@144Hz
-output HDMI-A-1 position 0 360 mode 1920x1080@60Hz
+output DP-2 position 0 0 mode 2560x1440@144Hz
+output HDMI-A-1 position 2560 360 mode 1920x1080@60Hz
 # output * bg /home/nikita/Pictures/wallpapers/nord-street.png fill
 
 
@@ -57,6 +68,15 @@ bindsym --to-code $mod+n exec $term -e newsboat
 # open windows with id "in_scratchpad" in scratchpad
 for_window [app_id="in_scratchpad"] move container to scratchpad, focus
 
+# # open apps in specified workspaces
+assign [class="steam"] workspace 15
+
+assign [app_id="DBeaver"] workspace 22
+assign [class="jetbrains-datagrip"]  workspace 23
+assign [app_id="taxsee.im.desktop*"] workspace 24
+
+assign [class="Element"] workspace number 25
+
 # powermenu
 bindsym --to-code $mod+SHIFT+BackSpace exec ~/Scripts/tofi/powermenu.sh
 
@@ -86,6 +106,30 @@ client.unfocused #1f1f28 #1f1f28 #888888 #1f1f28 #1f1f28
 client.urgent #1f1f28 #1f1f28 #888888 #1f1f28 #1f1f28
 client.focused_inactive #1f1f28 #1f1f28 #888888 #1f1f28 #1f1f28
 
+# bind workspaces to specific outputs
+workspace 10 output DP-2
+workspace 11 output DP-2
+workspace 12 output DP-2
+workspace 13 output DP-2
+workspace 14 output DP-2
+workspace 15 output DP-2
+workspace 16 output DP-2
+workspace 17 output DP-2
+workspace 18 output DP-2
+workspace 19 output DP-2
+workspace 10 output DP-2
+
+workspace 21 output HDMI-A-1
+workspace 22 output HDMI-A-1
+workspace 23 output HDMI-A-1
+workspace 24 output HDMI-A-1
+workspace 25 output HDMI-A-1
+workspace 26 output HDMI-A-1
+workspace 27 output HDMI-A-1
+workspace 28 output HDMI-A-1
+workspace 29 output HDMI-A-1
+workspace 20 output HDMI-A-1
+
 # move mouse to focused window/workspace
 mouse_warping output
 focus_wrapping workspace
@@ -110,16 +154,48 @@ bindsym --to-code $mod+i focus output left
 
 # workspaces
 # change focus between workspaces
-bindsym --to-code --no-warn $mod+1 exec "swaysome focus 1"
-bindsym --to-code --no-warn $mod+2 exec "swaysome focus 2"
-bindsym --to-code --no-warn $mod+3 exec "swaysome focus 3"
-bindsym --to-code --no-warn $mod+4 exec "swaysome focus 4"
-bindsym --to-code --no-warn $mod+5 exec "swaysome focus 5"
-bindsym --to-code --no-warn $mod+6 exec "swaysome focus 6"
-bindsym --to-code --no-warn $mod+7 exec "swaysome focus 7"
-bindsym --to-code --no-warn $mod+8 exec "swaysome focus 8"
-bindsym --to-code --no-warn $mod+9 exec "swaysome focus 9"
-bindsym --to-code --no-warn $mod+0 exec "swaysome focus 0"
+# bindsym --to-code --no-warn $mod+1 exec "swaysome focus 1"
+# bindsym --to-code --no-warn $mod+2 exec "swaysome focus 2"
+# bindsym --to-code --no-warn $mod+3 exec "swaysome focus 3"
+# bindsym --to-code --no-warn $mod+4 exec "swaysome focus 4"
+# bindsym --to-code --no-warn $mod+5 exec "swaysome focus 5"
+# bindsym --to-code --no-warn $mod+6 exec "swaysome focus 6"
+# bindsym --to-code --no-warn $mod+7 exec "swaysome focus 7"
+# bindsym --to-code --no-warn $mod+8 exec "swaysome focus 8"
+# bindsym --to-code --no-warn $mod+9 exec "swaysome focus 9"
+# bindsym --to-code --no-warn $mod+0 exec "swaysome focus 0"
+
+bindsym --to-code --no-warn $mod+1 workspace 11
+bindsym --to-code --no-warn $mod+2 workspace 12
+bindsym --to-code --no-warn $mod+3 workspace 13
+bindsym --to-code --no-warn $mod+4 workspace 14
+bindsym --to-code --no-warn $mod+5 workspace 15
+bindsym --to-code --no-warn $mod+6 workspace 16
+bindsym --to-code --no-warn $mod+7 workspace 17
+bindsym --to-code --no-warn $mod+8 workspace 18
+bindsym --to-code --no-warn $mod+9 workspace 19
+bindsym --to-code --no-warn $mod+0 workspace 10
+
+bindsym --to-code --no-warn $mod+Alt+1 workspace 21
+bindsym --to-code --no-warn $mod+Alt+2 workspace 22
+bindsym --to-code --no-warn $mod+Alt+3 workspace 23
+bindsym --to-code --no-warn $mod+Alt+4 workspace 24
+bindsym --to-code --no-warn $mod+Alt+5 workspace 25
+bindsym --to-code --no-warn $mod+Alt+6 workspace 26
+bindsym --to-code --no-warn $mod+Alt+7 workspace 27
+bindsym --to-code --no-warn $mod+Alt+8 workspace 28
+bindsym --to-code --no-warn $mod+Alt+9 workspace 29
+
+# does not work, 
+# bindsym --to-code --no-warn $mod+Shift_R+1 workspace 21
+# bindsym --to-code --no-warn $mod+Shift_R+2 workspace 22
+# bindsym --to-code --no-warn $mod+Shift_R+3 workspace 23
+# bindsym --to-code --no-warn $mod+Shift_R+4 workspace 24
+# bindsym --to-code --no-warn $mod+Shift_R+5 workspace 25
+# bindsym --to-code --no-warn $mod+Shift_R+6 workspace 26
+# bindsym --to-code --no-warn $mod+Shift_R+7 workspace 27
+# bindsym --to-code --no-warn $mod+Shift_R+8 workspace 28
+# bindsym --to-code --no-warn $mod+Shift_R+9 workspace 29
 
 # move containers between workspaces
 bindsym --to-code --no-warn $mod+Shift+1 exec "swaysome move 1"
