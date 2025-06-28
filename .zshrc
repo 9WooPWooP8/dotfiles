@@ -16,6 +16,7 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^I^I' autosuggest-accept
 
 alias v="nvim"
+alias ta='tmux at || tmux'
 alias ls="ls --color"
 alias homeaudio="ncmpcpp -h 192.168.0.100"
 alias lg="lazygit"
