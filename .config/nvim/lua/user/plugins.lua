@@ -45,15 +45,15 @@ lazy.setup({
 	"nvim-treesitter/nvim-treesitter-refactor",
 
 	-- file explorer
-	{
-		'stevearc/oil.nvim',
-		opts = {},
-		-- Optional dependencies
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		init = function()
+	-- {
+	-- 	'stevearc/oil.nvim',
+	-- 	opts = {},
+	-- 	-- Optional dependencies
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- 	init = function()
 
-		end
-	},
+	-- 	end
+	-- },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",

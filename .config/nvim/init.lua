@@ -23,7 +23,6 @@ require("user.gitsigns")
 require("user.dap.dapui")
 require("user.dap.dap")
 require("user.neotree")
-require("user.oil")
+-- require("user.oil")
 require("user.which_key")
 require("user.harpoon")
-
